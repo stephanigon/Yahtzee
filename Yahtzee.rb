@@ -29,3 +29,48 @@
 #       (For now the turn method should just return the final array that will eventually be scored. We will have to return to this method and update it once we have created and fleshed out Player and ScoreCard classes.)
 # => Bonus score added later for 65 point plus 35...
 
+# def player
+# 	puts "Welcome to Yahtzee! What is your name?"
+# 	@name = gets.chomp.downcase
+# 	puts "Would you to play against another Player or the Computer?"
+# 	input = gets.chomp.downcase
+# 	if input == "player"
+# 		puts "Who will you be playing against?"
+# 		@name2 = gets.chomp.downcase
+# 	else 
+#   	puts "I told you to give me a player"
+#   	player
+#   end
+# end
+# player
+
+def tbl
+	x = ["Game", "#{@name}", "#{@name2}"]
+	y = ["Ones", "Twos", "Threes", "Fours", "Fives","Sixes", "Bonus", "Total", "3 of a Kind", "4 of a Kind", "Full House", "Small Straight", "Large Straight", "Yahtzee", "Chance", "Top Total", "Bottom Total", "Grand Total"]
+
+	print '     '
+	x.each {|i| print "%-3d" }
+	print "\n    "
+	x.each {|i| print '---- '}
+	print "\n"
+
+	y.each do |j| 
+    print "%-3d| " y
+    x.each {|y| print "%-3d  "}
+    print "\n"
+
+	end
+end
+	tbl
+
+#add computer later
+# def computer
+
+# end
+
+
+# end
+
+# class score_card
+
+# end
