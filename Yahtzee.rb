@@ -44,24 +44,27 @@
 # end
 # player
 
-def tbl
-	x = ["Game", "#{@name}", "#{@name2}"]
-	y = ["Ones", "Twos", "Threes", "Fours", "Fives","Sixes", "Bonus", "Total", "3 of a Kind", "4 of a Kind", "Full House", "Small Straight", "Large Straight", "Yahtzee", "Chance", "Top Total", "Bottom Total", "Grand Total"]
+# def tbl
+# 	x = ["Game", "#{@name}", "#{@name2}"]
+# 	y = ["Ones", "Twos", "Threes", "Fours", "Fives","Sixes", "Bonus", "Total", "3 of a Kind", "4 of a Kind", "Full House", "Small Straight", "Large Straight", "Yahtzee", "Chance", "Top Total", "Bottom Total", "Grand Total"]
 
-	print '     '
-	x.each {|i| print "%-3d" }
-	print "\n    "
-	x.each {|i| print '---- '}
-	print "\n"
+# 	print '     '
+# 	x.each {|i| print i }.join(" ")
+# 	print "\n    "
+# 	x.each {|i| print '---- '}
+# 	print "\n"
 
-	y.each do |j| 
-    print "%-3d| " y
-    x.each {|y| print "%-3d  "}
-    print "\n"
+# 	y.each do |j| 
+#     x.each {|j| print j }.join(" ")
+#     print "\n"
 
-	end
-end
-	tbl
+# end
+# end
+# 	tbl
+
+# 	x.each do |r|
+#   puts r.each { |p| p }.join(" ")
+# end
 
 #add computer later
 # def computer
@@ -74,3 +77,12 @@ end
 # class score_card
 
 # end
+
+def dice
+		5.times do
+			p (1..6).to_a.sample 
+	end
+end
+
+
+dice
