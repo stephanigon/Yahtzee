@@ -1,4 +1,6 @@
-#  Objective
+require 'terminal-table'
+
+
 # Yahtzee
 #   To accumulate the most points by rolling certain combinations of dice that add to your total score.
 # Gameplay
@@ -29,38 +31,21 @@
 #       (For now the turn method should just return the final array that will eventually be scored. We will have to return to this method and update it once we have created and fleshed out Player and ScoreCard classes.)
 # => Bonus score added later for 65 point plus 35...
 
-# def player
-# 	puts "Welcome to Yahtzee! What is your name?"
-# 	@name = gets.chomp.downcase
-# 	puts "Would you to play against another Player or the Computer?"
-# 	input = gets.chomp.downcase
-# 	if input == "player"
-# 		puts "Who will you be playing against?"
-# 		@name2 = gets.chomp.downcase
-# 	else 
-#   	puts "I told you to give me a player"
-#   	player
-#   end
-# end
-# player
+def player
+	puts "Welcome to Yahtzee! What is your name?"
+	@name = gets.chomp.downcase
+	
+	puts "Who will you be playing against?"
+	@name2 = gets.chomp.downcase
+	
+end
+player
 
-# def tbl
-# 	x = ["Game", "#{@name}", "#{@name2}"]
-# 	y = ["Ones", "Twos", "Threes", "Fours", "Fives","Sixes", "Bonus", "Total", "3 of a Kind", "4 of a Kind", "Full House", "Small Straight", "Large Straight", "Yahtzee", "Chance", "Top Total", "Bottom Total", "Grand Total"]
+def tbl
+table = Terminal::Table.new :headings => ["Score Card", "@{name}", "@{name2}"], :rows => [["Ones"],["Twos"],["Threes"], ["Fours"], ["Fives"], ["Sixes"], ["Bonus"], ["Total"], ["3 of a Kind"], ["4 of a Kind"], ["Full House"], ["Small Straight"], ["Large Straight"], ["Yahtzee"], ["Chance"], ["Top Total"], ["Bottom Total"], ["Grand Total"]], :style => {:all_separators => true}
 
-# 	print '     '
-# 	x.each {|i| print i }.join(" ")
-# 	print "\n    "
-# 	x.each {|i| print '---- '}
-# 	print "\n"
-
-# 	y.each do |j| 
-#     x.each {|j| print j }.join(" ")
-#     print "\n"
-
-# end
-# end
-# 	tbl
+end
+puts tbl
 
 # 	x.each do |r|
 #   puts r.each { |p| p }.join(" ")
@@ -78,11 +63,9 @@
 
 # end
 
-def dice
-		5.times do
-			p (1..6).to_a.sample 
-	end
-end
+# def dice
+# 		5.times do
+# 			p (1..6).to_a.sample 
+# 	end
+# end
 
-
-dice
