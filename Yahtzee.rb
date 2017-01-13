@@ -1,5 +1,5 @@
 require 'terminal-table'
-
+require 'pry'
 
 # Yahtzee
 #   To accumulate the most points by rolling certain combinations of dice that add to your total score.
@@ -31,41 +31,81 @@ require 'terminal-table'
 #       (For now the turn method should just return the final array that will eventually be scored. We will have to return to this method and update it once we have created and fleshed out Player and ScoreCard classes.)
 # => Bonus score added later for 65 point plus 35...
 
-def player
-	puts "Welcome to Yahtzee! What is your name?"
-	@name = gets.chomp.downcase
+# def player
+# 	puts "Welcome to Yahtzee! What is your name?"
+# 	@name = gets.chomp.downcase
 	
-	puts "Who will you be playing against?"
-	@name2 = gets.chomp.downcase
+# 	puts "Who will you be playing against?"
+# 	@name2 = gets.chomp.downcase
 	
+# end
+# player
+
+# def tbl
+# table = Terminal::Table.new :headings => ["Score Card", @name, @name2], :rows => [["Ones"],["Twos"],["Threes"], ["Fours"], ["Fives"], ["Sixes"], ["Bonus"], ["Total"], ["3 of a Kind"], ["4 of a Kind"], ["Full House"], ["Small Straight"], ["Large Straight"], ["Yahtzee"], ["Chance"], ["Top Total"], ["Bottom Total"], ["Grand Total"]], :style => {:all_separators => true}
+
+# end
+# puts tbl
+
+	@counter = 1
+	@saved_dice = []
+	@dice_sample = [1,2,3,4,5,6]
+
+def selected_dice
+
+	rerolled_dice =[]
+
+	puts "How many dice would you like to re-roll."
+	input = gets.chomp.to_i
+	if input == 0 
+		exit
+	else
+  	while @counter <= input do
+    	 print "What spot?: "
+     	spot = gets.chomp.to_i
+     	rerolled_dice << spot
+     	@saved_dice.delete_at(spot) 
+     	p @saved_dice
+     	@counter += 1
+			@saved_dice.delete_at(spot)
+		end
+	end
 end
-player
 
-def tbl
-table = Terminal::Table.new :headings => ["Score Card", "@{name}", "@{name2}"], :rows => [["Ones"],["Twos"],["Threes"], ["Fours"], ["Fives"], ["Sixes"], ["Bonus"], ["Total"], ["3 of a Kind"], ["4 of a Kind"], ["Full House"], ["Small Straight"], ["Large Straight"], ["Yahtzee"], ["Chance"], ["Top Total"], ["Bottom Total"], ["Grand Total"]], :style => {:all_separators => true}
-
+def first_roll
+	until @saved_dice.count == 5
+		@saved_dice << @dice_sample.sample
+	end
+	p @saved_dice
+	selected_dice
 end
-puts tbl
-
-# 	x.each do |r|
-#   puts r.each { |p| p }.join(" ")
-# end
-
-#add computer later
-# def computer
-
-# end
+first_roll
 
 
-# end
 
-# class score_card
+def second_roll
+	until @saved_dice.count == 5
+		@saved_dice << @dice_sample.sample
+	end
+	p @saved_dice
+	selected_dice
+end
+second_roll
 
-# end
+def third_roll
+	until @saved_dice.count == 5
+		@saved_dice << @dice_sample.sample
+	end
+	p @saved_dice
+end
 
-# def dice
-# 		5.times do
-# 			p (1..6).to_a.sample 
-# 	end
-# end
+
+
+
+
+
+
+
+
+
 
